@@ -15,7 +15,7 @@ app.use(morgan("dev"));
 
 app.use(
   cors({
-    origin: "https://trade-track-1.onrender.com",
+    origin: ["http://localhost:5173", "https://trade-track-1.onrender.com"],
     credentials: true,
   })
 );
