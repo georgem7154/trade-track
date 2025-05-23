@@ -18,17 +18,17 @@ import Authentication from "./pages/Auth/Authentication";
 
 
 const router = createBrowserRouter([
-  { path: "/", element: <AnimatedPage><Home /></AnimatedPage>, errorElement: <Error /> },
-  { path: "/home", element: <AnimatedPage><Home /></AnimatedPage>, errorElement: <Error /> },
-  { path: "/stocks/:id", element: <AnimatedPage><CoreStock /></AnimatedPage>, errorElement: <Error /> },
-  { path: "/stocks", element: <AnimatedPage><Stock /></AnimatedPage>, errorElement: <Error /> },
-  { path: "/crypto", element: <AnimatedPage><Crypto /></AnimatedPage>, errorElement: <Error /> },
+  { path: "/", element: <Home />, errorElement: <Error /> },
+  { path: "/home", element: <Home />, errorElement: <Error /> },
+  { path: "/stocks/:id", element: <CoreStock />, errorElement: <Error /> },
+  { path: "/stocks", element: <Stock />, errorElement: <Error /> },
+  { path: "/crypto", element: <Crypto />, errorElement: <Error /> },
   {
     path: "/auth",
     element: <Authentication />,
     children: [
-      { path: "login", element: <AnimatedPage><Login /></AnimatedPage> },
-      { path: "register", element: <AnimatedPage><Register /></AnimatedPage> },
+      { path: "login", element: <Login /> },
+      { path: "register", element: <Register /> },
     ],
   },
   { path: "*", element: <RouteError /> },
