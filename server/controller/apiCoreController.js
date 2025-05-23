@@ -40,7 +40,7 @@ export const getCompanyIcon = async (req, res, next) => {
   try {
     const response = await axios.get(link, {
       headers: {
-        Authorization: `Bearer ${POLYGON1}`,
+        Authorization: `Bearer ${POLYGON2}`,
       },
       responseType: "arraybuffer",
     });
