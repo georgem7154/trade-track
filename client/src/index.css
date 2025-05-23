@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "coral";
+  src: local("CoralPixels-Regular"),
+    url("./assets/fonts/CoralPixels-Regular.ttf"), format("truetype");
+}
+@font-face {
+  font-family: "mystery";
+  src: local("MysteryQuest-Regular"),
+    url("./assets/fonts/MysteryQuest-Regular.ttf"), format("truetype");
+}
+@font-face {
+  font-family: "press";
+  src: local("PressStart2P-Regular"),
+    url("./assets/fonts/PressStart2P-Regular.ttf"), format("truetype");
+}
+@font-face {
+  font-family: "rogue";
+  src: local("RougeScript-Regular"),
+    url("./assets/fonts/RougeScript-Regular.ttf"), format("truetype");
+}
+@layer components {
+  .herobutton {
+    @apply xl:mx-9 md:mx-3 max-sm:m-1  bg-white px-4 py-2 rounded-2xl hover:rounded transition-all delay-150;
+  }
+}
+
+body {
+  background-color: black;
+  color: white;
+}
+* {
+  cursor: none !important;
+}
+
+input:focus {
+  outline: none;
+}
+
+input:-webkit-autofill {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: white;
+  transition: background-color 5000s ease-in-out 0s;
+}
+input {
+  filter: none !important;
+  mix-blend-mode: normal !important;
+}
+
