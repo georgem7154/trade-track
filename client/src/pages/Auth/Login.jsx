@@ -15,7 +15,7 @@ const Login = () => {
   });
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    console.log(formData)
+    console.log(formData);
   };
   useEffect(() => {
     setTimeout(() => {
@@ -27,25 +27,27 @@ const Login = () => {
     e.preventDefault();
     try {
       await axios.post(
-        "http://localhost:5000/user/login/user",
+        "https://trade-track-g6hr.onrender.com/user/login/user",
         { email: formData.email, password: formData.password },
         { withCredentials: true }
       );
       navigate("/home");
-      toast.success('sucessfully logged in')
+      toast.success("sucessfully logged in");
     } catch (error) {
-      console.log(error)
+      console.log(error);
       setError("Invalid Credentials");
     }
   };
   return (
     <div className="flex justify-center items-center w-screen h-screen">
-      <Ribbon/>
+      <Ribbon />
       <GlowCapture>
         <Glow color="purple">
-          
           <form className="flex glow:ring-2 glow:bg-glow/15 m-5 p-16 glow:ring-glow flex-col">
-          <div className="text-green-400 cur3"> <Link to='/auth/register'> Register Here</Link></div>
+            <div className="text-green-400 cur3">
+              {" "}
+              <Link to="/auth/register"> Register Here</Link>
+            </div>
             <label>Email</label>
             <input
               type="email"

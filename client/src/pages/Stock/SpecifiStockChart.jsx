@@ -39,7 +39,7 @@ const SpecifiStockChart = () => {
       }
       // debugger
       const response = await axios.get(
-        `http://localhost:5000/api/${id.toUpperCase()}/data`,
+        `https://trade-track-g6hr.onrender.com/api/${id.toUpperCase()}/data`,
         {
           params: { start: start, end: end },
         }
@@ -137,7 +137,9 @@ const SpecifiStockChart = () => {
         </div>
       ) : (
         <div className="mt-5 mx-5">
-          <div className="text-3xl max-sm:text-base text-green-500 font-press">Stock Chart (from 2015):</div>
+          <div className="text-3xl max-sm:text-base text-green-500 font-press">
+            Stock Chart (from 2015):
+          </div>
 
           <div className="gap-8  mt-5 flex flex-row ">
             <div className="text-xl font-sans text-slate-400">choose year:</div>
@@ -178,11 +180,10 @@ const SpecifiStockChart = () => {
         </div>
       )}
       <div className="text-3xl mt-5 max-sm:text-sm text-blue-500 font-press">
-        Advanced Stock Chart  (from 2015):
+        Advanced Stock Chart (from 2015):
       </div>
     </div>
   );
 };
 
 export default SpecifiStockChart;
-

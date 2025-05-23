@@ -25,7 +25,7 @@ const Crypto = () => {
 
    const getTopStocks = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/ctopmovers");
+      const response = await axios.get("https://trade-track-g6hr.onrender.com/api/ctopmovers");
       const extract = response.data.gainers;
       console.log(response.data)
       setSymbol1(extract.map((data) => data.symbol));

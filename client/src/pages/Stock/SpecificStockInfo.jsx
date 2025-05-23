@@ -26,16 +26,19 @@ const SpecificStockInfo = () => {
   const [ticker, setTicker] = useState("");
   const getIcon = async (link, retry = 1) => {
     if (!icon) {
-      setLoading(false)
+      setLoading(false);
       return;
     }
     let attempt = 0;
     while (attempt < retry) {
       try {
-        const response = await axios.get("http://localhost:5000/api/icon", {
-          params: { link },
-          responseType: "blob",
-        });
+        const response = await axios.get(
+          "https://trade-track-g6hr.onrender.com/api/icon",
+          {
+            params: { link },
+            responseType: "blob",
+          }
+        );
         const imageurl = URL.createObjectURL(response.data);
         setIcon(imageurl);
         setLoading(false);
@@ -59,9 +62,9 @@ const SpecificStockInfo = () => {
     while (attempt < retry) {
       try {
         const response = await axios.get(
-          `http://localhost:5000/api/${id.toUpperCase()}/company`
+          `https://trade-track-g6hr.onrender.com/api/${id.toUpperCase()}/company`
         );
-        console.log(response.data)
+        console.log(response.data);
         setAddress(
           `${response.data.results.address?.address1 || ""} ${
             response.data.results.address?.city || ""
@@ -82,8 +85,8 @@ const SpecificStockInfo = () => {
         setSicDescription(response.data.results?.sic_description || "");
         setTicker(response.data.results?.ticker || "");
         if (!icon) {
-        setLoading(false);
-      }
+          setLoading(false);
+        }
         return;
       } catch (error) {
         attempt++;

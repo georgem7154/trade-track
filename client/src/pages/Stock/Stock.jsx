@@ -29,7 +29,9 @@ const Stock = () => {
 
   const getActiveStocks = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/activestock");
+      const response = await axios.get(
+        "https://trade-track-g6hr.onrender.com/api/activestock"
+      );
       const extract = response.data.most_actives;
       setSymbol(extract.map((data) => data.symbol));
       setTradeCount(extract.map((data) => data.trade_count));
@@ -40,11 +42,13 @@ const Stock = () => {
       setError(error.response.data.message.toString());
     }
   };
-   const getTopStocks = async () => {
+  const getTopStocks = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/topmovers");
+      const response = await axios.get(
+        "https://trade-track-g6hr.onrender.com/api/topmovers"
+      );
       const extract = response.data.gainers;
-      console.log(response.data)
+      console.log(response.data);
       setSymbol1(extract.map((data) => data.symbol));
       setTradeCount1(extract.map((data) => data.price));
       setVolume1(extract.map((data) => data.percent_change));
@@ -125,7 +129,9 @@ const Stock = () => {
                       </div>
                       <div className="py-4 px-8  glow:ring-2 flex-col text-center glow:ring-glow rounded-xl bg-slate-900 flex">
                         <div>Price: {tradeCount1[i]}</div>
-                        <div>Percent Change: {Number(volume1[i]).toFixed(1)}%</div>
+                        <div>
+                          Percent Change: {Number(volume1[i]).toFixed(1)}%
+                        </div>
                       </div>
                     </div>
                   </Glow>
