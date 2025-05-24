@@ -30,8 +30,12 @@ const Stock = () => {
   const getActiveStocks = async () => {
     try {
       const response = await axios.get(
-        "https://trade-track-g6hr.onrender.com/api/activestock"
+        "/api/activestock"
       );
+      if(response.status!==200){
+        throw new Error('couldnt get repsonse')
+      }
+      console.log(response.data)
       const extract = response.data.most_actives;
       setSymbol(extract.map((data) => data.symbol));
       setTradeCount(extract.map((data) => data.trade_count));
@@ -39,13 +43,14 @@ const Stock = () => {
       setLoading(false);
     } catch (error) {
       console.error(error);
+      console.log('hi')
       setError(error.response.data.message.toString());
     }
   };
   const getTopStocks = async () => {
     try {
       const response = await axios.get(
-        "https://trade-track-g6hr.onrender.com/api/topmovers"
+        "/api/topmovers"
       );
       const extract = response.data.gainers;
       console.log(response.data);

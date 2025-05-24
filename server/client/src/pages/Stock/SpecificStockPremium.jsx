@@ -44,7 +44,7 @@ const SpecifiStockPremium = () => {
       }
       // debugger
       const response = await axios.get(
-        `https://trade-track-g6hr.onrender.com/api/${id.toUpperCase()}/datapremium`,
+        `/api/${id.toUpperCase()}/datapremium`,
         {
           params: { start: start, end: end },
         }
@@ -73,7 +73,7 @@ const SpecifiStockPremium = () => {
   const getUsdHistory = async (value = 2025) => {
     try {
       const response = await axios.get(
-        `https://trade-track-g6hr.onrender.com/api/${value}/inr`
+        `/api/${value}/inr`
       );
       const data = response.data;
       setUsdinr(data);

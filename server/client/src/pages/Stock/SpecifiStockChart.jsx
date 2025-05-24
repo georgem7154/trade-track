@@ -39,7 +39,7 @@ const SpecifiStockChart = () => {
       }
       // debugger
       const response = await axios.get(
-        `https://trade-track-g6hr.onrender.com/api/${id.toUpperCase()}/data`,
+        `/api/${id.toUpperCase()}/data`,
         {
           params: { start: start, end: end },
         }

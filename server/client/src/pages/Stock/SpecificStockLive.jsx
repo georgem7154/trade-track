@@ -18,7 +18,7 @@ const SpecificStockLive = () => {
   const getLiveData = async () => {
     try {
       const response = await axios.get(
-        `https://trade-track-g6hr.onrender.com/api/${id}/latest`
+        `/api/${id}/latest`
       );
       const data = response.data;
       setClose(data.minuteBar?.c || 0);
@@ -42,7 +42,7 @@ const SpecificStockLive = () => {
   const getLiveUsd = async () => {
     try {
       const response = await axios.get(
-        "https://trade-track-g6hr.onrender.com/api/usdtoinr"
+        "/api/usdtoinr"
       );
       const data = response.data;
       setInr(data.price);

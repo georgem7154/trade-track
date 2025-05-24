@@ -33,7 +33,7 @@ const SpecificStockInfo = () => {
     while (attempt < retry) {
       try {
         const response = await axios.get(
-          "https://trade-track-g6hr.onrender.com/api/icon",
+          "/api/icon",
           {
             params: { link },
             responseType: "blob",
@@ -62,7 +62,7 @@ const SpecificStockInfo = () => {
     while (attempt < retry) {
       try {
         const response = await axios.get(
-          `https://trade-track-g6hr.onrender.com/api/${id.toUpperCase()}/company`
+          `/api/${id.toUpperCase()}/company`
         );
         console.log(response.data);
         setAddress(

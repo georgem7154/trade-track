@@ -27,7 +27,7 @@ const Login = () => {
     e.preventDefault();
     try {
       await axios.post(
-        "https://trade-track-g6hr.onrender.com/user/login/user",
+        "/user/login/user",
         { email: formData.email, password: formData.password },
         { withCredentials: true }
       );

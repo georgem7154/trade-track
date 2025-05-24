@@ -12,7 +12,7 @@ const CoreStock = () => {
   const validateUser = async () => {
     try {
       const response = await axios.get(
-        "https://trade-track-g6hr.onrender.com/user/verifytoken/user",
+        "/user/verifytoken/user",
         { withCredentials: true }
       );
       if (response.status == 200) {

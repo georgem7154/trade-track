@@ -41,7 +41,7 @@ const Register = () => {
     }
     let status;
     try {
-      const response = await axios.get("https://trade-track-g6hr.onrender.com/user/find/user", {
+      const response = await axios.get("/user/find/user", {
         params: {
           email: formData.email,
         },
@@ -133,7 +133,7 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("https://trade-track-g6hr.onrender.com/user/", {
+      const response = await axios.post("/user/", {
         name: formData.name,
         email: formData.email,
         password: formData.password,
