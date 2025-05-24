@@ -1,3 +1,5 @@
+import reactGlow from "@codaworks/react-glow/tailwind";
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
@@ -11,7 +13,5 @@ export default {
       },
     },
   },
-  plugins: [
-     require('@codaworks/react-glow/tailwind')
-  ],
+  plugins: [reactGlow], // Using ES module import
 };

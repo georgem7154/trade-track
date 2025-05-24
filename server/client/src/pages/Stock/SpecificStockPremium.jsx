@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import CanvasJSReact from "@canvasjs/react-stockcharts";
+import CanvasJSReact from '@canvasjs/react-stockcharts';
 import { Circles } from "react-loader-spinner";
 import { useParams } from "react-router-dom";
 import { useDebounce } from "use-debounce";
