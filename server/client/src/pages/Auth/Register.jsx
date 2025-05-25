@@ -1,7 +1,7 @@
 import { Glow, GlowCapture } from "@codaworks/react-glow";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
+import PageTransition from "../../PageTransition";
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -151,8 +151,8 @@ const Register = () => {
   };
 
   return (
-    <GlowCapture>
-      <Ribbon/>
+    <GlowCapture className="bg-black">
+      {/* <Ribbon/> */}
       <div className="w-screen h-screen flex text-slate-400 justify-center items-center">
         <Glow color="red">
           <div className="flex flex-col glow:ring-2 glow:ring-glow m-1 glow:bg-blue-600/25 rounded-2xl px-14 pb-14 p-5">

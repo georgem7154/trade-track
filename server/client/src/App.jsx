@@ -1,6 +1,7 @@
-import React from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { ToastContainer, toast } from "react-toastify";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
+import { AnimatePresence } from "framer-motion";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {
   Error,
@@ -14,48 +15,32 @@ import {
 } from "../../client/src/pages/Index";
 import CustomCursor from "./CustomCursor";
 import Authentication from "./pages/Auth/Authentication";
-
-
-const router = createBrowserRouter([
-  { path: "/", element: <Home />, errorElement: <Error /> },
-  { path: "/home", element: <Home />, errorElement: <Error /> },
-  { path: "/stocks/:id", element: <CoreStock />, errorElement: <Error /> },
-  { path: "/stocks", element: <Stock />, errorElement: <Error /> },
-  { path: "/crypto", element: <Crypto />, errorElement: <Error /> },
-  {
-    path: "/auth",
-    element: <Authentication />,
-    children: [
-      { path: "login", element: <Login /> },
-      { path: "register", element: <Register /> },
-    ],
-  },
-  { path: "*", element: <RouteError /> },
-]);
-
-
-const AnimatedPage = ({ children }) => {
-  return (
-    <motion.div
-      initial={{ scale: 0.7, opacity: 0, x: "-100vw" }}
-      animate={{ scale: 1, opacity: 1, x: "0" }}
-      exit={{ scale: 0.7, opacity: 0, x: "100vw" }} 
-      transition={{ duration: 0.5, ease: "power2.out" }}
-    >
-      {children}
-    </motion.div>
-  );
-};
+import PageTransition from "./PageTransition";
+import Ribbon from "./pages/Home/Ribbon";
 
 const App = () => {
+  const location = useLocation();
   const isTouchScreen = window.matchMedia("(pointer: coarse)").matches;
-
+  const [authChecker,setAuthChecker] = useState(false)
   return (
-    <div>
+<>
       {isTouchScreen ? null : <CustomCursor />}
       <ToastContainer position="top-center" autoClose={3000} />
-      <RouterProvider router={router} />
-    </div>
+      <Ribbon authChecker={authChecker} setAuthChecker={setAuthChecker}/>
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}> 
+          <Route path="/" element={<PageTransition><Home authChecker={authChecker} setAuthChecker={setAuthChecker}/></PageTransition>}/>
+          <Route path="/stocks/:id" element={<PageTransition><CoreStock authChecker={authChecker} setAuthChecker={setAuthChecker}/></PageTransition>} />
+          <Route path="/stocks" element={<PageTransition><Stock authChecker={authChecker} setAuthChecker={setAuthChecker}/></PageTransition>} />
+          <Route path="/crypto" element={<PageTransition><Crypto authChecker={authChecker} setAuthChecker={setAuthChecker}/></PageTransition>} />
+          <Route path="/auth" element={<PageTransition><Authentication authChecker={authChecker} setAuthChecker={setAuthChecker}/></PageTransition>}>
+            <Route path="login" element={<PageTransition><Login authChecker={authChecker} setAuthChecker={setAuthChecker}/></PageTransition>} />
+            <Route path="register" element={<PageTransition><Register authChecker={authChecker} setAuthChecker={setAuthChecker}/></PageTransition>} />
+          </Route>
+          <Route path="*" element={<RouteError />} />
+        </Routes>
+      </AnimatePresence>
+ </>
   );
 };
 

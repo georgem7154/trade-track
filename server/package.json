@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "node app.js",
+    "dev": "nodemon app.js",
     "build-client": "cd client && npm install && npm run build",
     "postinstall": "npm run build-client"
   },

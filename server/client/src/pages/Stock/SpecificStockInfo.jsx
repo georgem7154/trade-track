@@ -6,7 +6,7 @@ import axios from "axios";
 import { Glow } from "@codaworks/react-glow";
 import SpecificStockLive from "./SpecificStockLive";
 import ImageNotFound from "../../assets/image.png";
-
+import { Fade } from "react-awesome-reveal";
 const SpecificStockInfo = () => {
   const { id } = useParams();
   const [loading, setLoading] = useState(true);
@@ -32,13 +32,10 @@ const SpecificStockInfo = () => {
     let attempt = 0;
     while (attempt < retry) {
       try {
-        const response = await axios.get(
-          "/api/icon",
-          {
-            params: { link },
-            responseType: "blob",
-          }
-        );
+        const response = await axios.get("/api/icon", {
+          params: { link },
+          responseType: "blob",
+        });
         const imageurl = URL.createObjectURL(response.data);
         setIcon(imageurl);
         setLoading(false);
@@ -61,9 +58,7 @@ const SpecificStockInfo = () => {
     let attempt = 0;
     while (attempt < retry) {
       try {
-        const response = await axios.get(
-          `/api/${id.toUpperCase()}/company`
-        );
+        const response = await axios.get(`/api/${id.toUpperCase()}/company`);
         console.log(response.data);
         setAddress(
           `${response.data.results.address?.address1 || ""} ${
@@ -188,56 +183,139 @@ const SpecificStockInfo = () => {
             </div>
             <div className="mt-5 grid grid-cols-2 font-mono text-slate-400">
               <div className="col-span-1 m-2 ml-5 ">
-                <div>
-                  <span className="text-green-400 font-bold">DESCRIPTION</span>:{" "}
-                  {description}
-                </div>
-                <div className="mt-10">
-                  <span className="text-green-400 font-bold">INDUSTRY</span>:{" "}
-                  {sicdescription}
-                </div>
+                <Fade
+                  direction="up"
+                  cascade
+                  triggerOnce
+                  fraction={0.5}
+                  duration={1000}
+                >
+                  <div>
+                    <span className="text-green-400 font-bold">
+                      DESCRIPTION
+                    </span>
+                    : {description}
+                  </div>
+                </Fade>
+                <Fade
+                  direction="up"
+                  cascade
+                  triggerOnce
+                  fraction={0.5}
+                  duration={1000}
+                >
+                  <div className="mt-10">
+                    <span className="text-green-400 font-bold">INDUSTRY</span>:{" "}
+                    {sicdescription}
+                  </div>
+                </Fade>
               </div>
               <div className="col-span-1 grid grid-row-9 gap-3  ml-5">
-                <div>
-                  <span className="text-green-400 font-bold">LISTDATE</span>:{" "}
-                  {listdate}
-                </div>
-                <div>
-                  <span className="text-green-400 font-bold">ADDRESS</span>:{" "}
-                  {address}
-                </div>
-                <div>
-                  <span className="text-green-400 font-bold">CURRENCY</span>:{" "}
-                  {currency}
-                </div>
-                <div>
-                  <span className="text-green-400 font-bold">WEBSITE</span>:{" "}
-                  <a
-                    className="hover:text-blue-500"
-                    target="_blank"
-                    href={homepage}
-                  >
-                    {homepage}
-                  </a>
-                </div>
-                <div>
-                  <span className="text-green-400 font-bold">LOCALE</span>:{" "}
-                  {locale}
-                </div>
-                <div>
-                  <span className="text-green-400 font-bold">MARKET</span>:{" "}
-                  {market}
-                </div>
-                <div>
-                  <span className="text-green-400 font-bold">PHONE</span>:{" "}
-                  {phone}
-                </div>
-                <div>
-                  <span className="text-green-400 font-bold">
-                    PRIMARY EXCHANGE
-                  </span>
-                  : {primaryexchange}
-                </div>
+                <Fade
+                  direction="up"
+                  cascade
+                  triggerOnce
+                  fraction={0.5}
+                  duration={1000}
+                >
+                  <div>
+                    <span className="text-green-400 font-bold">LISTDATE</span>:{" "}
+                    {listdate}
+                  </div>
+                </Fade>
+                <Fade
+                  direction="up"
+                  cascade
+                  triggerOnce
+                  fraction={0.5}
+                  duration={1000}
+                >
+                  <div>
+                    <span className="text-green-400 font-bold">ADDRESS</span>:{" "}
+                    {address}
+                  </div>
+                </Fade>
+                <Fade
+                  direction="up"
+                  cascade
+                  triggerOnce
+                  fraction={0.5}
+                  duration={1000}
+                >
+                  <div>
+                    <span className="text-green-400 font-bold">CURRENCY</span>:{" "}
+                    {currency}
+                  </div>
+                </Fade>
+                <Fade
+                  direction="up"
+                  cascade
+                  triggerOnce
+                  fraction={0.5}
+                  duration={1000}
+                >
+                  <div>
+                    <span className="text-green-400 font-bold">WEBSITE</span>:{" "}
+                    <a
+                      className="hover:text-blue-500"
+                      target="_blank"
+                      href={homepage}
+                    >
+                      {homepage}
+                    </a>
+                  </div>
+                </Fade>
+
+                <Fade
+                  direction="up"
+                  cascade
+                  triggerOnce
+                  fraction={0.5}
+                  duration={1000}
+                >
+                  <div>
+                    <span className="text-green-400 font-bold">LOCALE</span>:{" "}
+                    {locale}
+                  </div>
+                </Fade>
+                <Fade
+                  direction="up"
+                  cascade
+                  triggerOnce
+                  fraction={0.5}
+                  duration={1000}
+                >
+                  <div>
+                    <span className="text-green-400 font-bold">MARKET</span>:{" "}
+                    {market}
+                  </div>
+                </Fade>
+                <Fade
+                  direction="up"
+                  cascade
+                  triggerOnce
+                  fraction={0.5}
+                  duration={1000}
+                >
+                  <div>
+                    <span className="text-green-400 font-bold">PHONE</span>:{" "}
+                    {phone}
+                  </div>
+                </Fade>
+                <Fade
+                  direction="up"
+                  cascade
+                  triggerOnce
+                  fraction={0.5}
+                  duration={1000}
+                >
+                  <div>
+                    <span className="text-green-400 font-bold">
+                      PRIMARY EXCHANGE
+                    </span>
+                    : {primaryexchange}
+                  </div>
+                </Fade>
               </div>
             </div>
           </div>

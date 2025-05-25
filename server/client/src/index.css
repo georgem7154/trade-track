@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
+}
+
 @font-face {
   font-family: "coral";
   src: local("CoralPixels-Regular"),
@@ -27,9 +36,21 @@
     @apply xl:mx-9 md:mx-3 max-sm:m-1  bg-white px-4 py-2 rounded-2xl hover:rounded transition-all delay-150;
   }
 }
+@layer components {
+  .slide-in {
+    @apply fixed top-0 left-0 w-full h-screen bg-[url('/money.jpg')] bg-cover z-50 origin-bottom;
+  }
+}
+@layer components {
+  .slide-out {
+    @apply fixed top-0 left-0 w-full h-screen bg-[url('/money.jpg')] bg-cover z-50  origin-top;
+  }
+}
+
+
 
 body {
-  background-color: black;
+  background-color:rgb(33, 55, 56);
   color: white;
 }
 * {

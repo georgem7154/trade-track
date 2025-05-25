@@ -6,6 +6,7 @@ import { GlowCapture } from "@codaworks/react-glow";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import Ribbon from "../Home/Ribbon.jsx";
+import { Fade } from "react-awesome-reveal";
 
 const CoreStock = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -27,8 +28,8 @@ const CoreStock = () => {
   }, []);
   return (
     <>
-      <GlowCapture>
-        <Ribbon />
+      <GlowCapture className="bg-black ">
+        {/* <Ribbon /> */}
         <SpecificStockInfo />
         <SpecifiStockChart />
         {isAuthenticated ? (
@@ -37,7 +38,7 @@ const CoreStock = () => {
           <div>
             <div className="flex justify-center items-center">
               <div className="text-xl p-10 m-10">
-                Login to access:{" "}
+                Login to access:
                 <Link
                   className="hover:text-slate-200 cur3 font-bold bg-green-600 p-1 rounded-md"
                   to="/auth/login"

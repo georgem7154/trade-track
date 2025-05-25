@@ -9,7 +9,8 @@ export default defineConfig({
   plugins: [react(),commonjs()],
   server: {
     proxy: {
-      "/api": "https://trade-track-g6hr.onrender.com",
+      "/api": "http://localhost:5000",
+      "/user":"http://localhost:5000"
     },
   },
 });

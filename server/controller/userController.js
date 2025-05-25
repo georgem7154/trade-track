@@ -93,13 +93,23 @@ export const login = async (req, res, next) => {
     expiresIn: expiresIn,
   });
   res.cookie("token", token, {
-    httpOnly: false,
+    httpOnly: true,
     maxAge: 86400000,
     secure: NODE_ENV === "production",
     SameSite: "None",
   });
   res.status(StatusCodes.OK).json({ msg: "login sucessful" });
 };
+
+export const logout = async (req, res, next) => {
+  res.cookie("token", "logout", { 
+    httpOnly: true, 
+    expires: new Date(Date.now())
+  });
+  res.status(200).json({ message: "Logged out successfully" });
+
+};
+
 export const verifyToken = async (req, res) => {
   const { token } = req.cookies;
   if (!token)

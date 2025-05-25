@@ -31,7 +31,7 @@ const Login = () => {
         { email: formData.email, password: formData.password },
         { withCredentials: true }
       );
-      navigate("/home");
+      navigate(-1);
       toast.success("sucessfully logged in");
     } catch (error) {
       console.log(error);
@@ -39,8 +39,8 @@ const Login = () => {
     }
   };
   return (
-    <div className="flex justify-center items-center w-screen h-screen">
-      <Ribbon />
+    <div className="flex justify-center bg-black rounded-xl items-center w-screen h-screen">
+      {/* <Ribbon /> */}
       <GlowCapture>
         <Glow color="purple">
           <form className="flex glow:ring-2 glow:bg-glow/15 m-5 p-16 glow:ring-glow flex-col">
