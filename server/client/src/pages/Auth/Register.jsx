@@ -151,7 +151,7 @@ const Register = () => {
   };
 
   return (
-    <GlowCapture className="bg-black">
+    <GlowCapture className="bg-black w-screen h-screen">
       {/* <Ribbon/> */}
       <div className="w-screen h-screen flex text-slate-400 justify-center items-center">
         <Glow color="red">

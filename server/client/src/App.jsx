@@ -17,6 +17,7 @@ import CustomCursor from "./CustomCursor";
 import Authentication from "./pages/Auth/Authentication";
 import PageTransition from "./PageTransition";
 import Ribbon from "./pages/Home/Ribbon";
+import Background from "./Background";
 
 const App = () => {
   const location = useLocation();
@@ -26,6 +27,7 @@ const App = () => {
 <>
       {isTouchScreen ? null : <CustomCursor />}
       <ToastContainer position="top-center" autoClose={3000} />
+      <Background/>
       <Ribbon authChecker={authChecker} setAuthChecker={setAuthChecker}/>
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}> 
