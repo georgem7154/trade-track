@@ -147,7 +147,7 @@ const SpecifiStockChart = () => {
             <Glow color="red">
               <input
                 type="text"
-                className="w-40 cur2 bg-black text-center bighero glow:border-glow glow:ring-glow glow:bg-glow/15 rounded-lg border-red-50 border-2 font-bold  text-xl text-green-500"
+                className="w-40 cur2 bg-black text-center glow:border-glow glow:ring-glow glow:bg-glow/15 rounded-lg border-red-50 border-2 font-bold  text-xl text-green-500"
                 onChange={(e) => {
                   setYear(Number(e.target.value));
                 }}

@@ -9,7 +9,7 @@ import {
   getSpecificStockData,
   getSpecificStockLatest,
   getUsdToInr,
-  stockNews,
+  StockSearcher,
   TopMovers,
 } from "../controller/apiCoreController.js";
 const router = Router();
@@ -24,7 +24,7 @@ router.route("/:symbol/datapremium").get(getPremiumData)
 router.route("/activestock").get(ActiveStocks)
 router.route("/topmovers").get(TopMovers)
 router.route("/ctopmovers").get(CTopMovers)
-router.route("/news").get(stockNews)
+router.route("/:search/stocksearch").get(StockSearcher)
 
 
 

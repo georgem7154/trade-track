@@ -87,7 +87,7 @@ const SpecificStockInfo = () => {
         attempt++;
         if (attempt < retry) {
           if (error.response.data.error == "Ticker not found.") {
-            setError(`${error.response.data.error.toString()}.Please reload`);
+            setError(`Ticker not found.`);
             return;
           }
           console.log("retrying data");
@@ -115,7 +115,7 @@ const SpecificStockInfo = () => {
     if (error == "Ticker not found.") {
       return (
         <div>
-          <div className="text-3xl font-press text-red-400 text-center mt-5">
+          <div className="text-3xl font-press mt-36 text-red-400 text-center">
             {id}
           </div>
 
@@ -202,6 +202,7 @@ const SpecificStockInfo = () => {
                   cascade
                   triggerOnce
                   fraction={0.5}
+                  delay={2000}
                   duration={1000}
                 >
                   <div className="mt-10">

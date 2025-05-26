@@ -4,6 +4,7 @@ import { ApiFailError, BadRequestError } from "../errors/customErrors.js";
 import axios from "axios";
 import Price from "../model/Price.js";
 import Usd from "../model/Usd.js";
+import Search from "../model/Search.js";
 const BASE_URL = "https://www.alphavantage.co/query";
 
 //company info - status - done
@@ -208,7 +209,6 @@ export const TopMovers = async (req, res, next) => {
   res.status(200).json(response.data);
 };
 
-
 export const CTopMovers = async (req, res, next) => {
   const response = await axios.get(
     `https://data.alpaca.markets/v1beta1/screener/stocks/movers?top=50`,
@@ -226,20 +226,19 @@ export const CTopMovers = async (req, res, next) => {
   res.status(200).json(response.data);
 };
 
-export const stockNews = async (req, res, next) =>{
-  const response = await axios.get(
-    `https://data.alpaca.markets/v1beta1/news?sort=desc&limit=50`,
-    {
-      headers: {
-        accept: "application/json",
-        "APCA-API-KEY-ID": ALPACA,
-        "APCA-API-SECRET-KEY": ALPACA_SECRET,
+export const StockSearcher = async (req, res, next) => {
+  const { search } = req.params;
+  try {
+    const results = await Search.find(
+      {
+        $or: [
+          { Name: { $regex: search, $options: "i" } },
+          { Symbol: { $regex: search, $options: "i" } },
+        ],
       },
-    }
-  );
-  if (response.status !== 200) {
-    return res.status(400).json({ msg: "error occoured" });
-  }
-  res.status(200).json(response.data);
+      { Name: 1, Symbol: 1, _id: 0 }
+    ).limit(10);
 
-}
+    res.status(200).json(results);
+  } catch (error) {}
+};

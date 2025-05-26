@@ -47,6 +47,10 @@ body {
   }
 }
 
+.force-visible {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
 
 
 body {
