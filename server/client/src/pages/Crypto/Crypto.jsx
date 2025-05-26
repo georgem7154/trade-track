@@ -44,7 +44,7 @@ const Crypto = ({ authChecker, setAuthChecker }) => {
     }
     const response = await axios.get(`/api/${search}/stocksearch`);
     const extract = response.data;
-    console.log(response.data);
+    // console.log(response.data);
 
     setName(extract.map((data) => data.Name));
     setTick(extract.map((data) => data.Symbol));
@@ -68,13 +68,13 @@ const Crypto = ({ authChecker, setAuthChecker }) => {
     try {
       const response = await axios.get("/api/ctopmovers");
       const extract = response.data.gainers;
-      console.log(response.data);
+      // console.log(response.data);
       setSymbol1(extract.map((data) => data.symbol));
       setTradeCount1(extract.map((data) => data.price));
       setVolume1(extract.map((data) => data.percent_change));
       setLoading(false);
     } catch (error) {
-      console.error(error);
+      // console.error(error);
       setError1(error.response.data.message.toString());
     }
   };

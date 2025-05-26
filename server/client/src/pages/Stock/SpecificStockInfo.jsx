@@ -42,10 +42,10 @@ const SpecificStockInfo = () => {
         return;
       } catch (error) {
         attempt++;
-        console.error("Error fetching image:", error);
+        // console.error("Error fetching image:", error);
 
         if (attempt < retry) {
-          console.log("retrying image");
+          // console.log("retrying image");
           await new Promise((resolve) => setTimeout(resolve, 5000));
         } else {
           setError(`Couldnt retrieve image.Please reload`);
@@ -59,7 +59,7 @@ const SpecificStockInfo = () => {
     while (attempt < retry) {
       try {
         const response = await axios.get(`/api/${id.toUpperCase()}/company`);
-        console.log(response.data);
+        // console.log(response.data);
         setAddress(
           `${response.data.results.address?.address1 || ""} ${
             response.data.results.address?.city || ""
@@ -90,10 +90,10 @@ const SpecificStockInfo = () => {
             setError(`Ticker not found.`);
             return;
           }
-          console.log("retrying data");
+          // console.log("retrying data");
           await new Promise((resolve) => setTimeout(resolve, 5000));
         } else {
-          console.log(error.response.data.error);
+          // console.log(error.response.data.error);
           setError(`${error.response.data.error.toString()}`);
           return;
         }

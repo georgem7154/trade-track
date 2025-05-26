@@ -41,15 +41,15 @@ const Stock = ({ authChecker, setAuthChecker }) => {
       if (response.status !== 200) {
         throw new Error("couldnt get repsonse");
       }
-      console.log(response.data);
+      // console.log(response.data);
       const extract = response.data.most_actives;
       setSymbol(extract.map((data) => data.symbol));
       setTradeCount(extract.map((data) => data.trade_count));
       setVolume(extract.map((data) => data.volume));
       setLoading(false);
     } catch (error) {
-      console.error(error);
-      console.log("hi");
+      // console.error(error);
+      // console.log("hi");
       setError(error.response.data.message.toString());
     }
   };
@@ -57,13 +57,13 @@ const Stock = ({ authChecker, setAuthChecker }) => {
     try {
       const response = await axios.get("/api/topmovers");
       const extract = response.data.gainers;
-      console.log(response.data);
+      // console.log(response.data);
       setSymbol1(extract.map((data) => data.symbol));
       setTradeCount1(extract.map((data) => data.price));
       setVolume1(extract.map((data) => data.percent_change));
       setLoading(false);
     } catch (error) {
-      console.error(error);
+      // console.error(error);
       setError1(error.response.data.message.toString());
     }
   };
@@ -82,7 +82,7 @@ const Stock = ({ authChecker, setAuthChecker }) => {
     }
     const response = await axios.get(`/api/${search}/stocksearch`);
     const extract = response.data;
-    console.log(response.data);
+    // console.log(response.data);
 
     setName(extract.map((data) => data.Name));
     setTick(extract.map((data) => data.Symbol));

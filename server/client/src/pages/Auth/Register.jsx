@@ -29,7 +29,7 @@ const Register = () => {
   const [error, setError] = useState("");
   const [showpwd, setShowPwd] = useState(false);
   const emailValidate = async () => {
-    console.log("validating");
+    // console.log("validating");
     setCounter(10);
     if (formData.email.length < 10) {
       setError("Please provide proper email");
@@ -62,7 +62,7 @@ const Register = () => {
   const Validation = () => {
     if (formData.name.length > 2) {
       setUname("✅");
-      console.log(formData.name);
+      // console.log(formData.name);
     } else {
       setUname("❌");
     }
@@ -138,11 +138,11 @@ const Register = () => {
         email: formData.email,
         password: formData.password,
       });
-      console.log(response);
-      console.log("hi");
+      // console.log(response);
+      // console.log("hi");
       if (response.status == 201) {
         toast.success("user created");
-        console.log("bye");
+        // console.log("bye");
         navigate("/auth/login");
       }
     } catch (error) {

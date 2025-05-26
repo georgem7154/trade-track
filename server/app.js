@@ -42,12 +42,12 @@ app.use("*", (req, res) => {
   });
 });
 app.use((err, req, res, next) => {
-  console.error(err.stack);
+  // console.error(err.stack);
   res.status(500).json({
     message: "Internal server error",
   });
 });
 
 app.listen(5000, "0.0.0.0", () => {
-  console.log(`Server is running on port ${PORT}`);
+  // console.log(`Server is running on port ${PORT}`);
 });

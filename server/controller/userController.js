@@ -35,7 +35,7 @@ export const createUser = async (req, res, next) => {
 
     await newUser.save();
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return res.status(404).json({ msg: "error occoured" });
   }
   res.status(201).json({ msg: "user created" });

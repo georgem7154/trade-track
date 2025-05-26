@@ -12,15 +12,15 @@ const Ribbon = ({ authChecker, setAuthChecker }) => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const handleLogout = async () => {
-    console.log("hi");
-    console.log("Logout button clicked!");
+    // console.log("hi");
+    // console.log("Logout button clicked!");
     try {
       await axios.post("/user/logout/user", { withCredentials: true });
       setIsAuthenticated(false)
       toast.success('user logged out')
       navigate("/")
     } catch (error) {
-      console.error("Logout failed:", error);
+      // console.error("Logout failed:", error);
     }
   };
 

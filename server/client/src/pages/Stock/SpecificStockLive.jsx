@@ -47,7 +47,7 @@ const SpecificStockLive = () => {
       const data = response.data;
       setInr(data.price);
     } catch (error) {
-      console.error(error);
+      // console.error(error);
     }
   };
   useEffect(() => {

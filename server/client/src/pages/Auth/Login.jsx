@@ -15,7 +15,7 @@ const Login = () => {
   });
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    console.log(formData);
+    // console.log(formData);
   };
   useEffect(() => {
     setTimeout(() => {
@@ -34,7 +34,7 @@ const Login = () => {
       navigate(-1);
       toast.success("sucessfully logged in");
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       setError("Invalid Credentials");
     }
   };

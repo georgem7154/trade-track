@@ -58,7 +58,7 @@ const SpecifiStockPremium = () => {
       setTime(extract.map((data) => data.t.split("T")[0] || 0));
       setLoadchart(loadchart ? false : true);
     } catch (error) {
-      console.error(error);
+      // console.error(error);
       setError(true);
     }
   };
@@ -78,7 +78,7 @@ const SpecifiStockPremium = () => {
       const data = response.data;
       setUsdinr(data);
     } catch (error) {
-      console.error(error);
+      // console.error(error);
       setError(true);
     }
   };

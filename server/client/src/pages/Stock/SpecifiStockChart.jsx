@@ -55,8 +55,8 @@ const SpecifiStockChart = () => {
 
       setLoadchart(loadchart ? false : true);
     } catch (error) {
-      console.error(error);
-      console.log(error.response.data);
+      // console.error(error);
+      // console.log(error.response.data);
       setError(true);
     }
   };

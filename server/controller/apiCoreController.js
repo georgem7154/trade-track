@@ -26,7 +26,7 @@ export const getSpecificCompanyDetail = async (req, res, next) => {
       );
     res.status(200).json(response.data);
   } catch (error) {
-    console.error("Error fetching stock data:", error);
+    // console.error("Error fetching stock data:", error);
     res.status(400).json({
       error:
         error.response?.data?.message ||
@@ -50,7 +50,7 @@ export const getCompanyIcon = async (req, res, next) => {
     res.setHeader("Content-Type", "image/png"); // Adjust if needed
     res.send(Buffer.from(response.data));
   } catch (error) {
-    console.error("Error fetching image:", error.response.status);
+    // console.error("Error fetching image:", error.response.status);
     res.status(400).json({
       error: `Error Fetching Image: status(${error.response.status}) `,
     });
@@ -136,7 +136,7 @@ export const getLiveUsdInr = async (req, res, next) => {
     }
     res.json({ price: data[0].price });
   } catch (error) {
-    console.error(error);
+    // console.error(error);
   }
   // res.json({priceunit:response.data.conversion_rates.INR});
 };
