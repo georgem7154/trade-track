@@ -78,16 +78,23 @@ const Ribbon = ({ authChecker, setAuthChecker }) => {
           </div>
         </div>
         {show ? (
-          <div className="absolute flex flex-col justify-center text-white top-14 right-0 w-40 bg-black bg-opacity-90">
+          <div onClick={()=>{setShow(false)}} className="absolute flex flex-col justify-center text-white top-14 right-0 w-40 bg-black bg-opacity-90">
             <Link className="flex my-2 justify-center cur3" to="/stocks">
               <button className="cur3">Stocks</button>
             </Link>
-            <Link className="flex my-2 justify-center cur3" to="">
+            <Link className="flex my-2 justify-center cur3" to="/crypto">
               <button className=" cur3">Crypto</button>
             </Link>
-            <Link className="flex my-2 justify-center cur3" to="/auth/register">
+            {isAuthenticated ? (
+              <button onClick={handleLogout} className="cur3">
+                Logout
+              </button>
+            ) : (
+               <Link className="flex my-2 justify-center cur3" to="/auth/register">
               <button className=" cur3">Register</button>
             </Link>
+            )}
+           
             <div></div>
           </div>
         ) : (

@@ -137,10 +137,10 @@ const SpecificStockInfo = () => {
       );
     }
     return (
-      <div className="justify-center items-center flex flex-col w-full min-h-screen">
-        <div className="font-press ">Sorry an Error Occoured</div>
-        <div className="font-press ">Couldn't retrieve data</div>
-        <div className="font-mono">{error.toString()}</div>
+      <div className="justify-center mt-20 items-center flex flex-col w-full min-h-screen">
+        <div className="font-press px-2 ">Sorry an Error Occoured</div>
+        <div className="font-press px-2">Couldn't retrieve data</div>
+        <div className="font-mono px-2 text-center">{error.toString()}</div>
         <div>
           <SpecificStockLive />
         </div>
@@ -164,16 +164,16 @@ const SpecificStockInfo = () => {
           <span className="font-press">Delay due to Rate Limit</span>
         </div>
       ) : (
-        <div className="overflow-x-hidden select-none flex">
+        <div className="overflow-x-visible select-none flex">
           <div className="mt-20">
             <div className="flex flex-row gap-1 grid-cols-12 overflow-hidden break-words ">
               <img
-                className="w-20  h-20 flex justify-center  items-center mx-10"
+                className="w-20 max-sm:hidden h-20 flex justify-center  items-center mx-10"
                 src={icon || ImageNotFound}
                 alt="N/A"
               />
               <div className="col-span-1"></div>
-              <div className="col-span-10 flex-wrap justify-center  break-words  font-press text-2xl items-center flex">
+              <div className="col-span-10 max-sm:ml-2 flex-wrap justify-center  break-words  font-press text-2xl items-center flex">
                 {name}({ticker})
               </div>
               <div></div>
@@ -187,7 +187,6 @@ const SpecificStockInfo = () => {
                   direction="up"
                   cascade
                   triggerOnce
-                  fraction={0.5}
                   duration={1000}
                 >
                   <div>

@@ -75,8 +75,8 @@ const Stock = ({ authChecker, setAuthChecker }) => {
     navigate(`${search1.toUpperCase()}`);
   };
 
-  const getData =  async (e) => {
-    if (search=='') {
+  const getData = async (e) => {
+    if (search == "") {
       setName("");
       return;
     }
@@ -86,25 +86,22 @@ const Stock = ({ authChecker, setAuthChecker }) => {
 
     setName(extract.map((data) => data.Name));
     setTick(extract.map((data) => data.Symbol));
-    
-  }
-  useEffect(()=>{
+  };
+  useEffect(() => {
     if (search === "") {
-    setName([]);
-    return;
-  }
+      setName([]);
+      return;
+    }
 
-  const searchTimeout = setTimeout(() => {
-    getData();
-  }, 200);
+    const searchTimeout = setTimeout(() => {
+      getData();
+    }, 200);
 
-  return () => clearTimeout(searchTimeout);
-
-  },[search])
+    return () => clearTimeout(searchTimeout);
+  }, [search]);
   const handleChange = (e) => {
     setSearch(e.target.value);
-    
-    };
+  };
 
   useEffect(() => {
     setAuthChecker(!authChecker);
@@ -154,7 +151,7 @@ const Stock = ({ authChecker, setAuthChecker }) => {
           {name ? (
             <div className="rounded-xl mb-10">
               {name.map((data, i) => (
-                  <Link to={`/stocks/${tick[i]}`}>
+                <Link to={`/stocks/${tick[i]}`}>
                   <div className="grid justify-between hover:bg-red-500 hover:bg-opacity-100 rounded-xl hover:text-black hover:font-semibold  grid-cols-12">
                     <div className="col-span-10 rounded-xl border-y-2 border-l-2 border-green-500 p-2">
                       {data}
@@ -163,7 +160,7 @@ const Stock = ({ authChecker, setAuthChecker }) => {
                       {tick[i]}
                     </div>
                   </div>
-                  </Link>
+                </Link>
               ))}
             </div>
           ) : (

@@ -151,7 +151,7 @@ const Register = () => {
   };
 
   return (
-    <GlowCapture className="bg-black w-screen h-screen">
+    <GlowCapture className="bg-black max-sm:py-24 w-screen h-screen">
       {/* <Ribbon/> */}
       <div className="w-screen h-screen flex text-slate-400 justify-center items-center">
         <Glow color="red">
@@ -267,7 +267,7 @@ const Register = () => {
                   </button>
                 )}
               </form>
-              <div className="glow:ring-2 glow-ring">
+              <div className="glow:ring-2 glow-ring max-sm:text-center">
                 <div className="my-6 text-xl text-center glow:text-green-500/100">
                   Rules
                 </div>
