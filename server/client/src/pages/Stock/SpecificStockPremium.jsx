@@ -77,6 +77,7 @@ const SpecifiStockPremium = () => {
       );
       const data = response.data;
       setUsdinr(data);
+      console.log(data)
     } catch (error) {
       // console.error(error);
       setError(true);
@@ -123,7 +124,12 @@ const SpecifiStockPremium = () => {
             shared: true,
             contentFormatter: function (e) {
               const dataPoint = e.entries[0].dataPoint; // Get the hovered data point
-              return `🟢 Open: ${dataPoint.y[0]} ${
+              return `
+            ${dataPoint.x} 
+                
+               <br>
+
+              🟢 Open: ${dataPoint.y[0]} ${
                 dataPoint.t
                   ? `| Rs${(dataPoint.t * dataPoint.y[0]).toFixed(2)}`
                   : ""
@@ -230,12 +236,3 @@ const SpecifiStockPremium = () => {
 };
 
 export default SpecifiStockPremium;
-
-// left
-//crypto route and data
-//crypto chart
-// advance graph
-// stock and crypto - historical and latest bars
-// screenrer most active and top movers for stock and crypto
-//  news
-//ribbon for all rotes

@@ -171,6 +171,7 @@ const Register = () => {
                   Already Registered?{" "}
                   <Link
                     className="hover:text-black cur3 text-white"
+                     onClick={() => localStorage.setItem("prevPage", "/auth/register")}
                     to="/auth/login"
                   >
                     Login

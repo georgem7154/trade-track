@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Ribbon from "../Home/Ribbon";
 const Login = () => {
+  const prevPage = localStorage.getItem("prevPage");
   const navigate = useNavigate();
   const [showpwd, setShowPwd] = useState(false);
   const [isHovered1, setIsHovered1] = useState(false);
@@ -31,7 +32,13 @@ const Login = () => {
         { email: formData.email, password: formData.password },
         { withCredentials: true }
       );
-      navigate(-1);
+      if (prevPage === "/auth/register") {
+        navigate("/");
+        localStorage.removeItem("prevPage"); // Clear after redirect
+      } else {
+        navigate(-1);
+      }
+
       toast.success("sucessfully logged in");
     } catch (error) {
       // console.log(error);
@@ -44,6 +51,9 @@ const Login = () => {
       <GlowCapture>
         <Glow color="purple">
           <form className="flex glow:ring-2 glow:bg-glow/15 m-5 p-16 glow:ring-glow flex-col">
+            <div className="text-center  mb-5 text-4xl font-press glow:text-cyan-500/100">
+              Login
+            </div>
             <div className="text-green-400 cur3">
               {" "}
               <Link to="/auth/register"> Register Here</Link>
